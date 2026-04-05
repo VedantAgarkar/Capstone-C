@@ -15,7 +15,7 @@ for f in files:
         content = file.read()
     
     # Replace API_BASE = '' with the new logic
-    logic = "const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:8000' : 'https://your-render-backend-url.onrender.com';"
+    logic = "const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:8000' : 'https://healthpredict-i5qi.onrender.com';"
     content = content.replace("const API_BASE = '';", logic)
     content = content.replace('const API_BASE = "";', logic)
     content = content.replace("const API_BASE = ''; ", logic)

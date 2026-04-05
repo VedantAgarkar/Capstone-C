@@ -1,6 +1,6 @@
 // JavaScript for Parkinson's Disease Risk Assessment
 
-const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:8000' : 'https://your-render-backend-url.onrender.com'; 
+const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:8000' : 'https://healthpredict-i5qi.onrender.com'; 
 
 document.getElementById('parkinsonsForm').addEventListener('submit', async (e) => {
     e.preventDefault();
