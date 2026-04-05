@@ -1,0 +1,195 @@
+body {
+  background: #faf9f6;
+}
+
+/* Product Heading */
+.product-heading {
+  text-align: center;
+  margin-top: 46px;
+  margin-bottom: 35px;
+  font-size: 2.3rem;
+  color: #18192b;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+}
+
+/* Card Layout */
+.product-cards {
+  max-width: 1200px;
+  margin: 0 auto 64px auto;
+  padding: 0 16px;
+}
+
+.cards-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 36px;
+}
+
+/* Individual Card */
+.product-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px 0 rgba(44,44,45,0.10);
+  padding: 36px 30px 28px 30px;
+  width: 258px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #18192b;
+  border: 1.2px solid #efefef;
+  transition: box-shadow 0.19s, border-color 0.19s, transform 0.21s;
+}
+
+.product-card:hover {
+  border-color: #B79347;
+  box-shadow: 0 9px 28px 0 rgba(183,147,71,0.18);
+  transform: translateY(-3px) scale(1.025);
+}
+
+.card-icon {
+  font-size: 2.8rem;
+  margin-bottom: 18px;
+  color: #B79347;
+}
+
+.product-card h2 {
+  font-size: 1.28rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #B79347;
+}
+
+.product-card p {
+  font-size: 1rem;
+  color: #424242;
+  min-height: 52px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.card-btn {
+  display: inline-block;
+  background: #B79347;
+  color: white;
+  font-weight: bold;
+  padding: 10px 28px;
+  border-radius: 23px;
+  text-decoration: none;
+  margin-top: auto;
+  font-size: 1.07rem;
+  transition: background 0.2s, color 0.2s;
+}
+.card-btn:hover {
+  background: #cfab42;
+  color: #06061C;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .cards-row { gap: 22px; }
+  .product-card { width: 200px; padding: 30px 16px 18px 16px; }
+}
+@media (max-width: 800px) {
+  .cards-row { flex-wrap: wrap; justify-content: center; }
+}
+@media (max-width: 600px) {
+  .product-heading { font-size: 1.15rem; margin-top: 28px; margin-bottom: 14px; }
+  .cards-row { flex-direction: column; align-items: center; gap: 18px; }
+  .product-card { width: 94vw; min-width: 0; }
+}
+
+/* Add shimmer animation to product cards on hover */
+.product-card {
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.19s, border-color 0.19s, transform 0.21s;
+  /* Existing styles here */
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px 0 rgba(44,44,45,0.10);
+  padding: 36px 30px 28px 30px;
+  width: 258px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #18192b;
+  border: 1.2px solid #efefef;
+}
+
+/* Shimmer effect overlay */
+.product-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -75%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    rgba(215, 183, 77, 0) 0%,
+    rgba(215, 183, 77, 0.4) 50%,
+    rgba(215, 183, 77, 0) 100%
+  );
+  transform: skewX(-25deg);
+  transition: opacity 0.4s ease;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Keyframes for shimmer animation */
+@keyframes shimmerMove {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+/* Sparkle effect - multiple small spark shapes */
+.product-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle 2px at 20% 20%, rgba(223, 188, 73, 0.8), transparent 70%),
+    radial-gradient(circle 3px at 80% 30%, rgba(223, 188, 73, 0.8), transparent 70%),
+    radial-gradient(circle 1.5px at 40% 70%, rgba(223, 188, 73, 0.8), transparent 70%),
+    radial-gradient(circle 2px at 65% 80%, rgba(223, 188, 73, 0.8), transparent 70%),
+    radial-gradient(circle 1.5px at 85% 85%, rgba(223, 188, 73, 0.8), transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+  transition: opacity 0.4s ease;
+}
+
+/* On hover, start shimmer and sparkle */
+/* On hover, start shimmer and sparkle */
+.product-card:hover::before {
+  opacity: 1;
+  animation: shimmerMove 1.6s linear infinite; /* faster by 20% */
+}
+
+.product-card:hover::after {
+  opacity: 1;
+  animation: sparkleTwinkle 1.5s ease-in-out infinite alternate; /* sparkle speed unchanged */
+}
+
+/* Sparkle twinkle animation */
+@keyframes sparkleTwinkle {
+  0% {
+    opacity: 0.8;
+    filter: brightness(1);
+  }
+  100% {
+    opacity: 1;
+    filter: brightness;
+  }

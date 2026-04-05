@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - HealthPredictor</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="background">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+    </div>
+
+    <div class="login-container">
+        <div class="glass-card">
+            <a href="index.html" class="close-btn" title="Back to Home">✕</a>
+            <div class="header">
+                <h1 class="title">HealthPredictor</h1>
+                <p class="subtitle">Predict. Prevent. Prosper.</p>
+            </div>
+
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <div class="input-wrapper">
+                        <input 
+                            type="email" 
+                            id="email" 
+                            placeholder="Email Address"
+                            required
+                            class="form-input"
+                        >
+                        <span class="input-icon">📧</span>
+                        <div class="input-line"></div>
+                    </div>
+                    <span class="error-message" id="emailError"></span>
+                </div>
+
+                <div class="form-group">
+                    <div class="input-wrapper">
+                        <input 
+                            type="password" 
+                            id="password" 
+                            placeholder="Password"
+                            required
+                            class="form-input"
+                        >
+                        <img class="input-icon toggle-password" onclick="togglePassword()" src="https://img.icons8.com/?size=100&id=0ciqibcg6iLl&format=png&color=000000" alt="Show/Hide Password" style="cursor: pointer; width: 20px; height: 20px;">
+                        <div class="input-line"></div>
+                    </div>
+                    <span class="error-message" id="passwordError"></span>
+                </div>
+
+                <div class="remember-forgot">
+                    <label class="remember-me">
+                        <input type="checkbox" class="checkbox">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="btn-login">
+                    <span class="btn-text">Sign In</span>
+                    <div class="loader"></div>
+                </button>
+            </form>
+
+            <div class="divider">
+                <span>Or continue with</span>
+            </div>
+
+            <div class="social-login">
+                <button class="social-btn google">
+                    <span>Google</span>
+                </button>
+                <button class="social-btn github">
+                    <span>GitHub</span>
+                </button>
+            </div>
+
+            <div class="signup-link">
+                Don't have an account? <a href="signup.html">Create one</a>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <div class="info-item">
+                <span class="info-icon">⚕️</span>
+                <p>Accurate Health Analysis</p>
+            </div>
+            <div class="info-item">
+                <span class="info-icon">🔒</span>
+                <p>Secure & Private</p>
+            </div>
+            <div class="info-item">
+                <span class="info-icon">⚡</span>
+                <p>Instant Results</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/login.js"></script>
+</body>
+</html>

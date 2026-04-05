@@ -1,0 +1,59 @@
+# Project Analysis: HealthPredict (Advanced Medical Risk Prediction AI)
+
+## 1. Project Overview
+HealthPredict is an AI-powered medical risk assessment platform designed to evaluate the risk of chronic diseases. It provides users with instant, data-driven insights into their health using state-of-the-art Machine Learning models.
+
+## 2. Core Features
+### A. Medical Risk Assessments (AI Models)
+- **Heart Disease Prediction**: Analyzes clinical parameters like age, blood pressure, cholesterol, ECG results, and stress test data to predict cardiovascular risk.
+- **Diabetes Prediction**: Uses metrics such as Glucose levels (OGTT/FBS), Insulin, BMI, and family history to estimate diabetes risk.
+- **Parkinson's Disease Detection**: Employs advanced voice analysis (Jitter, Shimmer, NHR, HNR) to identify early indicators of Parkinson's disease.
+
+### B. User Features
+- **Health Dashboard**: A personalized space where users can see their "Wellness Score," latest assessment results, and a graphical history of past tests.
+- **Multi-Language Support**: Complete localization in **English** and **Marathi**, ensuring accessibility for a wider demographic.
+- **Medical AI Chatbot**: A 24/7 virtual assistant powered by OpenRouter AI to answer general medical queries and provide health guidance.
+- **PDF Reports**: Automated generation of clinical reports after completing an assessment for easy sharing with healthcare providers.
+
+### C. Administrative Features
+- **Admin Dashboard**: Provides project administrators with high-level statistics, including total user count, assessment volume, and recent prediction logs.
+- **User Management**: Secure registration and login system with JWT-based authentication.
+
+## 3. Technology Stack
+### Frontend
+- **HTML5 & CSS3**: Responsive design with a premium, modern aesthetic.
+- **JavaScript (Vanilla)**: Handles UI logic, local storage, and API communication.
+- **Localization**: Dynamic translation system (`translations.js`) for English and Marathi.
+
+### Backend
+- **FastAPI (Python)**: The primary API gateway for managing users, statistics, and serving the frontend.
+- **Streamlit**: Powers the interactive assessment interfaces for heart, diabetes, Parkinson's, and the chatbot.
+- **SQLite**: Lightweight database for storing user profiles and prediction history.
+- **JWT (JSON Web Tokens)**: Secure stateless authentication for API access.
+
+### Machine Learning
+- **Scikit-Learn**: Used for developing and deploying the predictive models (`.sav` files).
+- **OpenRouter API**: Integrated for the medical chatbot's natural language processing capabilities.
+
+## 4. System Architecture
+- **Root Directory**: Contains major modules like `backend/`, `frontend/`, and configuration files.
+- **Backend Module**:
+  - `main.py`: FastAPI entry point that also manages Streamlit subprocesses.
+  - `database.py`: Database schema and connection logic.
+  - `routes/`: Individual Streamlit apps for each health assessment.
+- **Frontend Module**:
+  - `index.html`, `dashboard.html`, `login.html`: Core pages.
+  - `js/`: Application logic (`dashboard.js`, `global.js`, `translations.js`).
+  - `css/`: Modern styling for the entire platform.
+
+## 5. Security & Data Privacy
+- **Password Hashing**: Uses `bcrypt` for secure credential storage.
+- **Data Retention**: Emphasizes privacy; health data is used for assessment and only stored in history if the user is authenticated.
+- **Session Management**: Secure JWT-based session handling with 24-hour expiration.
+
+## 6. Development Status
+- **Current Phase**: Phase 8 (Localization & Streamlit Integration).
+- **Recent Updates**: Implemented multi-language support and unified the dashboard view for both Admin and Users.
+- **Next Steps**: Enhancements to the analytics engine and potential integration of more medical markers.
+
+---

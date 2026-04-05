@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Risk - HealthPredict</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/assess.css">
+</head>
+<body>
+    <header>
+        <div class="navbar" id="navbar">
+            <div class="logo-text">🏥<span class="logo-text">HealthPredict</span></div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link" data-i18n="nav.home">Homepage</a></li>
+                    <li><a href="product.html" class="nav-link active" data-i18n="nav.products">Products</a></li>
+                    <li><a href="help.html" class="nav-link" data-i18n="nav.help">Help</a></li>
+                    <li><a href="about.html" class="nav-link" data-i18n="nav.about">About</a></li>
+                </ul>
+            </nav>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <select id="lang-select" class="lang-select">
+                    <option value="en">English</option>
+                    <option value="mr">Marathi (मराठी)</option>
+                </select>
+                <a href="login.html" class="login-btn" data-i18n="nav.login">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <p class="loading-text">Analyzing your data...</p>
+    </div>
+
+    <!-- Assessment Form Container -->
+    <div class="assess-container">
+        <div class="assess-hero accent-heart">
+            <h1>❤️ Heart Disease Risk Assessment</h1>
+            <p>Evaluate your risk based on clinical measurements and medical history using our AI model.</p>
+        </div>
+
+        <form id="heartForm">
+            <div class="form-section">
+                <h3>Demographics</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="age">Age (years)</label>
+                        <input type="number" id="age" required min="18" max="120" value="50">
+                    </div>
+                    <div class="form-group">
+                        <label for="sex">Biological Sex</label>
+                        <select id="sex" required>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="bmi">Body Mass Index (BMI)</label>
+                        <input type="number" id="bmi" required min="15" max="50" step="0.1" value="25.0">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Clinical Measurements</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="resting_bp">Resting Blood Pressure (mm Hg)</label>
+                        <input type="number" id="resting_bp" required min="80" max="200" value="120">
+                    </div>
+                    <div class="form-group">
+                        <label for="fasting_blood_sugar">Fasting Blood Sugar > 120 mg/dl?</label>
+                        <select id="fasting_blood_sugar" required>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="cholesterol">Serum Cholesterol (mg/dl)</label>
+                        <input type="number" id="cholesterol" required min="100" max="400" value="200">
+                    </div>
+                    <div class="form-group">
+                        <label for="max_heart_rate">Maximum Heart Rate Achieved</label>
+                        <input type="number" id="max_heart_rate" required min="60" max="220" value="150">
+                    </div>
+                    <div class="form-group" style="grid-column: 1 / -1;">
+                        <label for="chest_pain">Chest Pain Type</label>
+                        <select id="chest_pain" required>
+                            <option value="Asymptomatic">Asymptomatic</option>
+                            <option value="Non-anginal Pain">Non-anginal Pain</option>
+                            <option value="Atypical Angina">Atypical Angina</option>
+                            <option value="Typical Angina">Typical Angina</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Cardiovascular Test Results</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="rest_ecg">Resting ECG Results</label>
+                        <select id="rest_ecg" required>
+                            <option value="Normal">Normal</option>
+                            <option value="ST-T Abnormality">ST-T Abnormality</option>
+                            <option value="Left Ventricular Hypertrophy">Left Ventricular Hypertrophy</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exercise_induced_angina">Exercise Induced Angina?</label>
+                        <select id="exercise_induced_angina" required>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="st_depression">ST Depression (Induced by Exercise)</label>
+                        <input type="number" id="st_depression" required min="0" max="10" step="0.1" value="0.0">
+                    </div>
+                    <div class="form-group">
+                        <label for="slope">Slope of Peak Exercise ST Segment</label>
+                        <select id="slope" required>
+                            <option value="Upsloping">Upsloping</option>
+                            <option value="Flat">Flat</option>
+                            <option value="Downsloping">Downsloping</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ca">Number of Major Vessels Colored by Fluoroscopy</label>
+                        <input type="number" id="ca" required min="0" max="3" value="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="thal">Thalassemia (Thal)</label>
+                        <select id="thal" required>
+                            <option value="Normal">Normal</option>
+                            <option value="Fixed Defect">Fixed Defect</option>
+                            <option value="Reversible Defect">Reversible Defect</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Medical History & Lifestyle</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="family_history">Family History of Heart Disease?</label>
+                        <select id="family_history" required>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="diabetes_history">History of Diabetes?</label>
+                        <select id="diabetes_history" required>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="hypertension">History of Hypertension?</label>
+                        <select id="hypertension" required>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="smoking">Smoking Status</label>
+                        <select id="smoking" required>
+                            <option value="Never">Never</option>
+                            <option value="Former">Former</option>
+                            <option value="Current">Current</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exercise_frequency">Exercise Frequency</label>
+                        <select id="exercise_frequency" required>
+                            <option value="None">None</option>
+                            <option value="1-2 times">1-2 times a week</option>
+                            <option value="3-4 times">3-4 times a week</option>
+                            <option value="5+ times">5+ times a week</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="assess-btn accent-heart-btn">🔍 Assess Heart Disease Risk</button>
+        </form>
+
+        <div id="resultSection">
+            <h2 style="color: #1a1f3a; margin-bottom: 10px;">Assessment Results</h2>
+            <div class="risk-meter-wrap">
+                <div class="risk-meter"></div>
+                <div class="risk-arrow" id="riskArrow"></div>
+                <div class="risk-label" id="riskLabel">0%</div>
+            </div>
+            
+            <div style="text-align: center;">
+                <div class="risk-badge" id="riskBadge">Loading...</div>
+            </div>
+
+            <div class="summary-box" id="summaryText">
+                <!-- AI summary rendered here -->
+            </div>
+
+            <div class="disclaimer">
+                ⚠️ Information provided is for educational purposes only. Always consult a qualified healthcare professional.
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="js/translations.js"></script>
+    <script src="js/global.js"></script>
+    <script src="js/heart.js"></script>
+</body>
+</html>

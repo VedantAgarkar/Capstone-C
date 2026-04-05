@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HealthPredict - Home</title>
+  <link rel="stylesheet" href="./css/global.css?v=1.1" />
+  <link rel="stylesheet" href="./css/home.css?v=1.1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@100..900&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="loader-content">
+      <div class="heart-icon">❤️</div>
+      <h2>HealthPredict</h2>
+      <div class="loader-bar"></div>
+    </div>
+  </div>
+  <header>
+  <div class="navbar" id="navbar">
+    <div class="logo-text">🏥<span class="logo-text">HealthPredict</span></div>
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link active" data-i18n="nav.home">Homepage</a></li>
+        <li><a href="product.html" class="nav-link" data-i18n="nav.products">Products</a></li>
+        <li><a href="help.html" class="nav-link" data-i18n="nav.help">Help</a></li>
+        <li><a href="about.html" class="nav-link" data-i18n="nav.about">About</a></li>
+      </ul>
+    </nav>
+    <div style="display: flex; gap: 10px; align-items: center;">
+      <select id="lang-select" class="lang-select">
+        <option value="en">English</option>
+        <option value="mr">Marathi (मराठी)</option>
+      </select>
+      <a href="login.html" class="login-btn" data-i18n="nav.login">Login</a>
+    </div>
+  </div>
+  </header>
+  <!-- HERO BANNER -->
+  <section class="hero" style="background-image: url('banner.png'); background-size:cover; background-position:top-right; 
+  background-repeat:no-repeat">
+    <div class="hero-content">
+      <div class="hero-left">
+        <h1 style="color: #B79347;" data-i18n="hero.title_home">Your Personal Health AI Advisor</h1>
+        <p class="hero-desc" style="color:#24234D; font-weight:bold" data-i18n="hero.subtitle_home">
+          Predict, Analyze, and Monitor health conditions with HealthPredict
+        </p> <!-- Fixed closed tag issue -->
+        <ul style="font-size: 18px; color:#24234D; font-weight:bold">
+          <li data-i18n="hero.list.0">Heart Disease Detection</li>
+          <li data-i18n="hero.list.1">Parkinson's Diagnosis</li>
+          <li data-i18n="hero.list.2">Diabetes Prediction</li>
+          <li data-i18n="hero.list.3">24/7 Health Monitoring</li>
+        </ul>
+
+
+        <div class="hero-right">
+          <!-- Replace the placeholder with your actual image -->
+          <!-- <img src="./images/sculpture-placeholder.png" alt="Legal Symbol" class="hero-image"> -->
+        </div>
+      </div>
+  </section>
+
+  <!-- Legacy Section
+  <section class="legacy-excellence">
+    <h2>A Legacy Of Legal Excellence</h2>
+    <ul>
+      <li>Safeguarding client's rights and interests</li>
+      <li>Commitment to achieving favorable results</li>
+      <li>Upholding the highest ethical standards</li>
+    </ul>
+    <a href="#" class="read-more-btn">Read More</a>
+  </section> -->
+
+  <!-- Key Metrics Strip -->
+  <section class="metrics-strip">
+    <div class="metrics-block"><span>50k+</span><br><span data-i18n="metrics.assessments">Health Assessments</span>
+    </div>
+    <div class="metrics-block"><span>98%</span><br><span data-i18n="metrics.accuracy">Accuracy Rate</span></div>
+    <div class="metrics-block"><span>13k</span><br><span data-i18n="metrics.cases">Cases Covered</span></div>
+    <div class="metrics-block"><span>24/7</span><br><span data-i18n="metrics.available">Available</span></div>
+  </section>
+
+  <!-- Health Solutions -->
+  <section class="legal-solutions">
+    <h2 data-i18n="solutions.title">Your Health Solutions</h2>
+    <div class="solutions-btns">
+      <a href="heart.html" class="solution-btn" data-i18n="solutions.heart">Heart Disease Risk</a>
+      <a href="parkinsons.html" class="solution-btn" data-i18n="solutions.parkinsons">Parkinson's Detection</a>
+      <a href="diabetes.html" class="solution-btn" data-i18n="solutions.diabetes">Diabetes Prediction</a>
+      <a href="bot.html" class="solution-btn" data-i18n="solutions.bot">Health Chatbot</a>
+    </div>
+  </section>
+
+  <footer>
+    <p data-i18n="footer">© 2026 HealthPredict</p>
+  </footer>
+
+  <!-- Floating Chatbot Button -->
+  <a href="bot.html" class="chatbot-fab" title="Chat with HealthPredict Bot">
+    <div class="chatbot-tooltip">Need Help? Chat with AI</div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z" />
+      <path d="M0 0h24v24H0z" fill="none" />
+      <circle cx="15" cy="10" r="1.5" />
+      <circle cx="9" cy="10" r="1.5" />
+      <path
+        d="M12 16c2.03 0 3.8-1.11 4.75-2.75.19-.33-.05-.75-.44-.75H7.69c-.38 0-.63.42-.44.75.95 1.64 2.72 2.75 4.75 2.75z" />
+    </svg>
+  </a>
+
+  <!-- Global and Page-specific Scripts -->
+  <script src="./js/translations.js?v=1.1"></script>
+  <script src="./js/global.js?v=1.1" defer></script>
+  <script src="./js/home.js?v=1.1" defer></script>
+
+</body>
+
+</html>

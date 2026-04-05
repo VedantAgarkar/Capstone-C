@@ -1,0 +1,252 @@
+/* Shared variables inherit from global.css */
+.assess-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 20px 40px;
+}
+
+.assess-hero {
+    padding: 40px;
+    border-radius: 16px;
+    margin-bottom: 32px;
+    color: white;
+}
+
+.assess-hero.accent-heart {
+    background: linear-gradient(135deg, #1a1f3a, #4a1020);
+    border-left: 4px solid #dc3545;
+}
+
+.assess-hero.accent-diabetes {
+    background: linear-gradient(135deg, #1a1f3a, #3d2000);
+    border-left: 4px solid #fd7e14;
+}
+
+.assess-hero.accent-parkinsons {
+    background: linear-gradient(135deg, #1a1f3a, #2a1040);
+    border-left: 4px solid #6f42c1;
+}
+
+.assess-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.assess-hero p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.form-section {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.form-section h3 {
+    border-left: 4px solid #B79347;
+    padding-left: 12px;
+    color: #1a1f3a;
+    margin-bottom: 20px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+@media(max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 6px;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.2s;
+}
+
+.form-group input:focus, .form-group select:focus {
+    outline: none;
+    border-color: #B79347;
+    box-shadow: 0 0 0 3px rgba(183,147,71,0.15);
+}
+
+.assess-btn {
+    width: 100%;
+    padding: 14px;
+    background: #B79347;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 20px;
+}
+
+.assess-btn:hover {
+    background: #a6854a;
+    transform: translateY(-2px);
+}
+
+.assess-btn.accent-heart-btn { background: #dc3545; }
+.assess-btn.accent-heart-btn:hover { background: #c82333; }
+
+.assess-btn.accent-diabetes-btn { background: #fd7e14; }
+.assess-btn.accent-diabetes-btn:hover { background: #e86e04; }
+
+.assess-btn.accent-parkinsons-btn { background: #6f42c1; }
+.assess-btn.accent-parkinsons-btn:hover { background: #5a32a3; }
+
+#resultSection {
+    display: none;
+    margin-top: 32px;
+}
+
+.risk-meter-wrap {
+    position: relative;
+    margin: 30px 0 50px;
+}
+
+.risk-meter {
+    height: 24px;
+    border-radius: 12px;
+    background: linear-gradient(to right, #28a745 0%, #ffc107 50%, #dc3545 100%);
+}
+
+.risk-arrow {
+    position: absolute;
+    top: -12px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 14px solid #333;
+    transform: translateX(-50%);
+    transition: left 0.8s ease;
+    left: 0%;
+}
+
+.risk-label {
+    position: absolute;
+    top: -30px;
+    background: #333;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: bold;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    transition: left 0.8s ease;
+    left: 0%;
+}
+
+.risk-badge {
+    display: inline-block;
+    padding: 10px 24px;
+    border-radius: 50px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin: 12px 0 24px;
+}
+
+.badge-high { background: #dc3545; }
+.badge-moderate { background: #fd7e14; }
+.badge-low { background: #28a745; }
+
+.summary-box {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 24px;
+    line-height: 1.8;
+    border-left: 4px solid #B79347;
+    font-size: 1.05rem;
+    color: #333;
+}
+
+.summary-box h3, .summary-box h4 {
+    color: #1a1f3a;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.summary-box h3:first-child { margin-top: 0; }
+
+.summary-box ul {
+    padding-left: 20px;
+    margin-bottom: 1rem;
+}
+
+.summary-box li {
+    margin-bottom: 6px;
+}
+
+.disclaimer {
+    font-size: 0.85rem;
+    color: #888;
+    font-style: italic;
+    margin-top: 24px;
+    padding: 12px;
+    border-left: 3px solid #B79347;
+    background: #fffdf5;
+}
+
+.loading-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(26,31,58,0.85);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.loading-overlay.active {
+    display: flex;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 5px solid rgba(183,147,71,0.2);
+    border-top-color: #B79347;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loading-text {
+    color: white;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: 500;
+}

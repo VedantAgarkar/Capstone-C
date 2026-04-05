@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - HealthPredict</title>
+    <link rel="stylesheet" href="./css/global.css?v=1.1">
+    <link rel="stylesheet" href="./css/dashboard.css?v=1.1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="navbar" id="navbar">
+        <div class="logo-text">🏥<span class="logo-text">HealthPredict</span></div>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Homepage</a></li>
+                <li><a href="product.html" class="nav-link">Products</a></li>
+            </ul>
+        </nav>
+        <div style="display: flex; gap: 10px; align-items: center;">
+            <select id="lang-select" class="lang-select">
+                <option value="en">English</option>
+                <option value="mr">Marathi (मराठी)</option>
+            </select>
+            <a href="login.html" class="login-btn">Login</a>
+        </div>
+    </div>
+
+    <main class="dashboard-container">
+        <header class="dashboard-header">
+            <div class="header-main">
+                <h1 id="headerTitle">Admin Control Center</h1>
+                <p id="headerSubtitle">Real-time analytics and user data insights</p>
+            </div>
+            <button id="refreshBtn" class="refresh-btn">
+                <span class="refresh-icon">🔄</span> Refresh Data
+            </button>
+        </header>
+
+        <!-- Admin View -->
+        <div class="bento-grid" id="adminView" style="display: none;">
+            <!-- Total Users Card -->
+            <div class="bento-item card-total-users">
+                <div class="card-icon">👥</div>
+                <h3>Total Users</h3>
+                <div class="stat-value" id="totalUsers">--</div>
+                <div class="stat-label">Registered members</div>
+            </div>
+
+            <!-- Prediction Breakdown Card -->
+            <div class="bento-item card-breakdown">
+                <h3>Prediction Breakdown</h3>
+                <div class="chart-container" id="breakdownContainer">
+                    <!-- Data will be injected here -->
+                    <div class="breakdown-list" id="breakdownList">
+                        <p class="loading-text">Loading insights...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Health Card -->
+            <div class="bento-item card-health">
+                <div class="card-icon">🛡️</div>
+                <h3>System Status</h3>
+                <div class="health-status">
+                    <span class="status-dot online"></span>
+                    <span class="status-text">SQLi Protection: ACTIVE</span>
+                </div>
+                <p class="health-desc">All queries are currently parameterized.</p>
+            </div>
+
+            <!-- Recent Predictions Card -->
+            <div class="bento-item card-recent">
+                <h3>Recent Activity</h3>
+                <div class="table-wrapper">
+                    <table id="recentPredictionsTable">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Type</th>
+                                <th>Outcome</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentPredictionsBody">
+                            <tr>
+                                <td colspan="4" class="loading-text">Fetching latest data...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- User View -->
+        <div class="bento-grid" id="userView" style="display: none;">
+            <!-- Wellness Score Card -->
+            <div class="bento-item card-wellness">
+                <div class="card-icon">🌟</div>
+                <h3>Wellness Score</h3>
+                <div class="wellness-score-container">
+                    <div class="score-value" id="wellnessScore">--</div>
+                    <div class="score-label">Health Quotient</div>
+                </div>
+            </div>
+
+            <!-- Latest Assessments Card -->
+            <div class="bento-item card-health-status">
+                <h3>Latest Assessments</h3>
+                <div id="userHealthList">
+                    <p class="loading-text">Analyzing your records...</p>
+                </div>
+            </div>
+
+            <!-- Prediction History Card -->
+            <div class="bento-item card-user-history">
+                <h3>Your History</h3>
+                <div class="table-wrapper">
+                    <table id="userHistoryTable">
+                        <thead>
+                            <tr>
+                                <th>Assessment Type</th>
+                                <th>Result</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody id="userHistoryBody">
+                            <tr>
+                                <td colspan="3" class="loading-text">Fetching your history...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="./js/global.js?v=1.1"></script>
+    <script src="./js/dashboard.js?v=1.1"></script>
+</body>
+
+</html>

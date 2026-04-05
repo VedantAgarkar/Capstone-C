@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+pydantic[email]
+python-dotenv
+pandas
+numpy
+scikit-learn
+joblib
+openai
+passlib[bcrypt]
+PyJWT

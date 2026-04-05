@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Risk Assessment - HealthPredict</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/assess.css">
+</head>
+<body>
+    <header>
+        <div class="navbar" id="navbar">
+            <div class="logo-text">🏥<span class="logo-text">HealthPredict</span></div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link" data-i18n="nav.home">Homepage</a></li>
+                    <li><a href="product.html" class="nav-link active" data-i18n="nav.products">Products</a></li>
+                    <li><a href="help.html" class="nav-link" data-i18n="nav.help">Help</a></li>
+                    <li><a href="about.html" class="nav-link" data-i18n="nav.about">About</a></li>
+                </ul>
+            </nav>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <select id="lang-select" class="lang-select">
+                    <option value="en">English</option>
+                    <option value="mr">Marathi (मराठी)</option>
+                </select>
+                <a href="login.html" class="login-btn" data-i18n="nav.login">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner" style="border-top-color: #fd7e14;"></div>
+        <p class="loading-text">Analyzing your data...</p>
+    </div>
+
+    <div class="assess-container">
+        <div class="assess-hero accent-diabetes">
+            <h1>🩸 Diabetes Risk Assessment</h1>
+            <p>Evaluate your risk using advanced AI analysis of your clinical metrics.</p>
+        </div>
+
+        <form id="diabetesForm">
+            <div class="form-section">
+                <h3>Demographics & Basics</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="age">Age (years)</label>
+                        <input type="number" id="age" required min="18" max="120" value="45">
+                    </div>
+                    <div class="form-group">
+                        <label for="sex">Biological Sex</label>
+                        <select id="sex" required>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="pregnancies">Number of Pregnancies</label>
+                        <input type="number" id="pregnancies" required min="0" max="20" value="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="bmi">Body Mass Index (BMI)</label>
+                        <input type="number" id="bmi" required min="15" max="70" step="0.1" value="25.0">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Clinical Measurements</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="glucose">Fasting Glucose Level</label>
+                        <input type="number" id="glucose" required min="0" max="250" value="100">
+                    </div>
+                    <div class="form-group">
+                        <label for="blood_pressure">Blood Pressure (Diastolic)</label>
+                        <input type="number" id="blood_pressure" required min="0" max="200" value="70">
+                    </div>
+                    <div class="form-group">
+                        <label for="skin_thickness">Skin Thickness</label>
+                        <input type="number" id="skin_thickness" required min="0" max="100" value="20">
+                    </div>
+                    <div class="form-group">
+                        <label for="insulin">Insulin Level</label>
+                        <input type="number" id="insulin" required min="0" max="900" value="0">
+                    </div>
+                    <div class="form-group" style="grid-column: 1 / -1;">
+                        <label for="diabetes_pedigree">Diabetes Pedigree Function (Genetic Risk Score)</label>
+                        <input type="number" id="diabetes_pedigree" required min="0" max="2.5" step="0.001" value="0.5">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Medical History & Lifestyle</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="family_history">Family History of Diabetes?</label>
+                        <select id="family_history" required>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="hypertension">History of Hypertension?</label>
+                        <select id="hypertension" required>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="physical_activity">Physical Activity Level</label>
+                        <select id="physical_activity" required>
+                            <option value="Sedentary">Sedentary</option>
+                            <option value="Light">Light</option>
+                            <option value="Moderate">Moderate</option>
+                            <option value="Active">Active</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="smoking">Smoking Status</label>
+                        <select id="smoking" required>
+                            <option value="Never">Never</option>
+                            <option value="Former">Former</option>
+                            <option value="Current">Current</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="diet_quality">Diet Quality</label>
+                        <select id="diet_quality" required>
+                            <option value="Poor">Poor</option>
+                            <option value="Fair">Fair</option>
+                            <option value="Good">Good</option>
+                            <option value="Excellent">Excellent</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sleep_hours">Average Sleep Hours/Night</label>
+                        <input type="number" id="sleep_hours" required min="3" max="12" value="7">
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="assess-btn accent-diabetes-btn">🔍 Assess Diabetes Risk</button>
+        </form>
+
+        <div id="resultSection">
+            <h2 style="color: #1a1f3a; margin-bottom: 10px;">Assessment Results</h2>
+            <div class="risk-meter-wrap">
+                <div class="risk-meter"></div>
+                <div class="risk-arrow" id="riskArrow"></div>
+                <div class="risk-label" id="riskLabel">0%</div>
+            </div>
+            
+            <div style="text-align: center;">
+                <div class="risk-badge" id="riskBadge">Loading...</div>
+            </div>
+
+            <div class="summary-box" id="summaryText"></div>
+
+            <div class="disclaimer">
+                ⚠️ Information provided is for educational purposes only. Always consult a qualified healthcare professional.
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="js/translations.js"></script>
+    <script src="js/global.js"></script>
+    <script src="js/diabetes.js"></script>
+</body>
+</html>

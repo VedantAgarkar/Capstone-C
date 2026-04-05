@@ -1,0 +1,447 @@
+/* ═══════════════════════════════════════════════════ */
+/*  DASHBOARD — Navy Blue & Gold Theme                */
+/* ═══════════════════════════════════════════════════ */
+
+:root {
+    --dash-bg-deep: #11142b;
+    --dash-bg: #1a1f3a;
+    --dash-card: rgba(26, 31, 58, 0.85);
+    --dash-border: rgba(183, 147, 71, 0.25);
+    --dash-border-hover: rgba(183, 147, 71, 0.6);
+    --dash-gold: #B79347;
+    --dash-gold-dim: rgba(183, 147, 71, 0.15);
+    --dash-gold-glow: rgba(183, 147, 71, 0.35);
+    --dash-white: #ffffff;
+    --dash-muted: rgba(255, 255, 255, 0.55);
+    --dash-success: #4ade80;
+}
+
+body {
+    background: radial-gradient(ellipse at top left, #1a1f3a 0%, #11142b 60%, #0d0f1f 100%);
+    min-height: 100vh;
+    color: var(--dash-white);
+    font-family: 'Outfit', 'Poppins', sans-serif;
+    margin: 0;
+}
+
+/* ── Dashboard Container ──────────────────────────── */
+.dashboard-container {
+    max-width: 1200px;
+    margin: 88px auto 56px;
+    padding: 20px 24px;
+}
+
+/* ── Header ───────────────────────────────────────── */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 40px;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.refresh-btn {
+    background: var(--dash-gold-dim);
+    border: 1px solid var(--dash-gold);
+    color: var(--dash-gold);
+    padding: 10px 22px;
+    border-radius: 10px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: fit-content;
+}
+
+.refresh-btn:hover {
+    background: var(--dash-gold);
+    color: var(--dash-bg-deep);
+    box-shadow: 0 4px 15px var(--dash-gold-glow);
+    transform: translateY(-2px);
+}
+
+.refresh-btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.refresh-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.refresh-btn.loading .refresh-icon {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.dashboard-header h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin: 0 0 8px;
+    background: linear-gradient(120deg, #ffffff 0%, #B79347 60%, #e8c97a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+}
+
+.dashboard-header p {
+    color: var(--dash-muted);
+    font-size: 1.05rem;
+    margin: 0;
+    letter-spacing: 0.3px;
+}
+
+/* ── Bento Grid ───────────────────────────────────── */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+}
+
+/* ── Bento Card Base ──────────────────────────────── */
+.bento-item {
+    background: var(--dash-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--dash-border);
+    border-radius: 20px;
+    padding: 24px;
+    min-height: 200px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Subtle gold shimmer line on top */
+.bento-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--dash-gold), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.bento-item:hover::before {
+    opacity: 1;
+}
+
+.bento-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--dash-border-hover);
+    box-shadow: 0 8px 32px rgba(183, 147, 71, 0.18), 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.bento-item h3 {
+    margin: 0 0 14px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--dash-muted);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+/* ── Card: Total Users ────────────────────────────── */
+.card-total-users {
+    grid-column: span 1;
+    grid-row: span 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(183, 147, 71, 0.12) 0%, rgba(26, 31, 58, 0.9) 100%);
+    border-color: rgba(183, 147, 71, 0.4);
+}
+
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 0 8px rgba(183, 147, 71, 0.5));
+}
+
+.stat-value {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--dash-gold);
+    text-shadow: 0 0 20px rgba(183, 147, 71, 0.4);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--dash-muted);
+    margin-top: 6px;
+}
+
+/* ── Card: Prediction Breakdown ───────────────────── */
+.card-breakdown {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.breakdown-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.breakdown-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.breakdown-label {
+    font-size: 0.88rem;
+    color: var(--dash-white);
+    opacity: 0.85;
+}
+
+.breakdown-count {
+    background: var(--dash-gold-dim);
+    color: var(--dash-gold);
+    border: 1px solid rgba(183, 147, 71, 0.4);
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+/* ── Card: System Health ──────────────────────────── */
+.card-health {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+.health-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.status-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.status-dot.online {
+    background: var(--dash-success);
+    box-shadow: 0 0 10px var(--dash-success);
+    animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+
+    0%,
+    100% {
+        box-shadow: 0 0 6px var(--dash-success);
+    }
+
+    50% {
+        box-shadow: 0 0 14px var(--dash-success), 0 0 20px rgba(74, 222, 128, 0.3);
+    }
+}
+
+.status-text {
+    font-weight: 600;
+    color: var(--dash-success);
+    font-size: 0.95rem;
+}
+
+.health-desc {
+    font-size: 0.88rem;
+    color: var(--dash-muted);
+    line-height: 1.5;
+}
+
+/* ── Card: Recent Activity ────────────────────────── */
+.card-recent {
+    grid-column: span 4;
+    grid-row: span 1;
+}
+
+/* ── Card: Wellness Score ─────────────────────────── */
+.card-wellness {
+    grid-column: span 1;
+    grid-row: span 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(74, 222, 128, 0.15) 0%, rgba(26, 31, 58, 0.9) 100%) !important;
+    border-color: rgba(74, 222, 128, 0.3) !important;
+}
+
+.wellness-score-container {
+    padding: 10px;
+}
+
+.score-value {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--dash-success);
+    text-shadow: 0 0 20px rgba(74, 222, 128, 0.4);
+    line-height: 1;
+}
+
+.score-label {
+    font-size: 0.85rem;
+    color: var(--dash-muted);
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ── Card: User Health Status ─────────────────────── */
+.card-health-status {
+    grid-column: span 3;
+    grid-row: span 1;
+}
+
+#userHealthList {
+    display: flex;
+    gap: 15px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+}
+
+.health-status-card {
+    flex: 1;
+    min-width: 150px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--dash-border);
+    border-radius: 12px;
+    padding: 15px;
+    transition: all 0.3s ease;
+}
+
+.health-status-card:hover {
+    background: rgba(183, 147, 71, 0.08);
+    transform: translateY(-3px);
+}
+
+.status-type {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--dash-gold);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.status-outcome {
+    font-size: 1.05rem;
+    font-weight: 700;
+    display: block;
+}
+
+.card-user-history {
+    grid-column: span 4;
+}
+
+/* ── Table Styling ────────────────────────────────── */
+.table-wrapper {
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 280px;
+    /* Expand to show ~5-6 rows before scrolling */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+}
+
+th {
+    text-align: left;
+    padding: 10px 12px;
+    color: var(--dash-gold);
+    font-weight: 600;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid var(--dash-border);
+}
+
+td {
+    padding: 11px 12px;
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.85);
+    border-bottom: 1px solid rgba(183, 147, 71, 0.06);
+    transition: background 0.2s ease;
+}
+
+tr:hover td {
+    background: rgba(183, 147, 71, 0.06);
+}
+
+.loading-text {
+    text-align: center;
+    color: var(--dash-muted);
+    padding: 24px;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* ── Responsive ───────────────────────────────────── */
+@media (max-width: 900px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
+
+    .card-total-users,
+    .card-breakdown,
+    .card-health,
+    .card-recent {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card-total-users,
+    .card-breakdown,
+    .card-health,
+    .card-recent {
+        grid-column: span 1;
+    }
+
+    .dashboard-header h1 {
+        font-size: 1.8rem;
+    }
+}
